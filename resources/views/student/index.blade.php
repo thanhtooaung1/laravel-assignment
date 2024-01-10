@@ -6,8 +6,10 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body shadow">
-                        <a href="{{ route('student.create') }}" class="btn btn-success mb-3">
-                            <i class="fa-solid fa-plus"></i></a>
+                        @auth
+                            <a href="{{ route('student.create') }}" class="btn btn-success mb-3">
+                                <i class="fa-solid fa-plus"></i></a>
+                        @endauth
                         <table class="table">
                             <thead class="table-dark">
                                 <tr>
@@ -27,24 +29,27 @@
                                         <td>{{ $student->age }}</td>
                                         <td>{{ $student->father }}</td>
                                         <td>{{ $student->height }}</td>
-                                        <td>
-                                            <div class="d-flex justify-content-center">
-                                                <a href="{{ route('student.edit', $student->id) }}"
-                                                    class="btn btn-outline-warning me-2"><i
-                                                        class="fa-solid fa-edit"></i></a>
-                                                <a href="{{ route('student.show', $student->id) }}"
-                                                    class="btn btn-outline-info me-2"><i class="fa-solid fa-info"></i></a>
-                                                <div>
-                                                    <form action="{{ route('student.destroy', $student->id) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('delete')
-                                                        <button class="btn btn-outline-danger"><i
-                                                                class="fa-solid fa-trash"></i></button>
-                                                    </form>
+                                        @auth
+                                            <td>
+                                                <div class="d-flex justify-content-center">
+                                                    <a href="{{ route('student.edit', $student->id) }}"
+                                                        class="btn btn-outline-warning me-2"><i
+                                                            class="fa-solid fa-edit"></i></a>
+                                                    <a href="{{ route('student.show', $student->id) }}"
+                                                        class="btn btn-outline-info me-2"><i class="fa-solid fa-info"></i></a>
+                                                    <div>
+                                                        <form action="{{ route('student.destroy', $student->id) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button class="btn btn-outline-danger"><i
+                                                                    class="fa-solid fa-trash"></i></button>
+                                                        </form>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </td>
+                                            </td>
+                                        @endauth
+
                                     </tr>
                                 @endforeach
 
