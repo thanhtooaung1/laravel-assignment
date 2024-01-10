@@ -13,7 +13,7 @@
                             <div class="form-group mb-3">
                                 <label for="name">Name</label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                    value="{{ $course->name }}" name="name">
+                                    value="{{ old('name', $course->name) }}" name="name">
                                 @error('name')
                                     <div class="text-danger">* {{ $message }}</div>
                                 @enderror
@@ -21,7 +21,7 @@
                             <div class="form-group mb-3">
                                 <label for="fee">Fee</label>
                                 <input type="number" class="form-control @error('fee') is-invalid @enderror" name="fee"
-                                    value="{{ $course->fee }}">
+                                    value="{{ old('fee', $course->fee) }}">
                                 @error('fee')
                                     <div class="text-danger">* {{ $message }}</div>
                                 @enderror
@@ -29,7 +29,7 @@
                             <div class="form-group mb-3">
                                 <label for="duration">Duration (month)</label>
                                 <input type="text" class="form-control @error('duration') is-invalid @enderror"
-                                    name="duration" value="{{ $course->duration }}">
+                                    name="duration" value="{{ old('duration', $course->duration) }}">
                                 @error('duration')
                                     <div class="text-danger">* {{ $message }}</div>
                                 @enderror
@@ -37,7 +37,7 @@
                             <div class="form-group mb-3">
                                 <label for="location">Location</label>
                                 <input type="text" class="form-control @error('location') is-invalid @enderror"
-                                    value="{{ $course->location }}" name="location">
+                                    value="{{ old('location', $course->location) }}" name="location">
                                 @error('location')
                                     <div class="text-danger">* {{ $message }}</div>
                                 @enderror

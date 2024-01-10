@@ -18,7 +18,7 @@
                             </thead>
                             <tbody class="table-group-divider">
                                 <tr>
-                                    <th scope="row">{{ $course->id }}</th>
+                                    <th scope="row">1</th>
                                     <td>{{ $course->name }}</td>
                                     <td>{{ $course->fee }}</td>
                                     <td>{{ $course->duration }}</td>
